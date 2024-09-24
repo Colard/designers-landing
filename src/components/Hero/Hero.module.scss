@@ -1,0 +1,25 @@
+.hero {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding-top: 24.6rem;
+  background-image: url("../../assets/images/hero-image.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+
+  &__slider {
+    width: 100%;
+  }
+
+  &__button {
+    width: 23rem;
+    background-color: var(--purple-button);
+    margin: 0 auto;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 1.2rem;
+  }
+}

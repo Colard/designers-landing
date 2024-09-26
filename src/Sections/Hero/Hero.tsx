@@ -1,6 +1,6 @@
-import Button from "../Button/Button";
-import Container from "../Container/Container";
-import HeroSwiper, { SlideData } from "../Swiper/Swiper";
+import Button from "../../components/Button/Button";
+import Container from "../../components/Container/Container";
+import HeroSwiper, { SlideData } from "../../components/HeroSwiper/HeroSwiper";
 import styles from "./Hero.module.scss";
 import React from "react";
 

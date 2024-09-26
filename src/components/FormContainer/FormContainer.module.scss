@@ -1,0 +1,43 @@
+.form {
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  input {
+    height: 5rem;
+    background-color: var(--white);
+    border-radius: 10rem;
+    color: var(--form-text);
+    font-weight: 500;
+    font-size: 1.8rem;
+
+    &::placeholder {
+      color: var(--form-text);
+      opacity: 0.4;
+      height: 5rem;
+    }
+  }
+
+  :global {
+    input.social-button {
+        background-color: var(--social-button);
+    }
+
+    input.button {
+        background-color: var(--aqua-button);
+    }
+
+    input.button, input.social-button {
+        text-align: center;
+        color: var(--white);
+        font-size: 1.8rem;
+        line-height: 2.6rem;
+        font-weight: 500;
+    }
+
+    input.text {
+        border: var(--gray) solid 0.2rem;
+        padding-left: 2.4rem;
+    }
+  }
+}

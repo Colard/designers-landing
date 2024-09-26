@@ -37,27 +37,37 @@
     border: 2px var(--white) solid;
   }
 
-  &__navigation {
-    width: 20px;
-    height: 20px;
-    z-index: 10;
-    top: 24%;
-    transform: translateY(-50%);
+  &__button-box{
     position: absolute;
-    font-size: 20px;
-    padding: 3rem;
+    top: 0;
+    height: 100%;
+    width: 5rem;
+    z-index: 10;
+
+    &_prev {
+      left:4%
+    }
+
+    &_next {
+      right: 3%;
+    }
+
     &:hover {
       opacity: 0.3;
       transition: all 0.2s linear;
     }
+  }
 
-    &.prev {
-      left: 2.8%;
-    }
 
-    &.next {
-      right: 3.5%;
-    }
+  &__navigation {
+    width: 2rem;
+    height: 2rem;
+    z-index: 10;
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    font-size: 2rem;
   }
 }
 

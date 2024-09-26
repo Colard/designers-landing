@@ -8,7 +8,7 @@ let Container: React.FC<ContainerProps> = ({
   ...rest
 }) => {
   return (
-    <div className={classes["container"] + (className || "")} {...rest}>
+    <div className={classes["container"] + " " + (className || "")} {...rest}>
       {children}
     </div>
   );

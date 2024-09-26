@@ -1,0 +1,41 @@
+.content {
+    width: 100%;
+    min-height: 54rem;
+    height: 100%;
+    background-image: url("../../assets/images/waves.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10.7rem;
+
+    &__text-block {
+        width: 100%;
+        max-width: 78.4rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-weight: bold;
+        line-height: 2.6rem;
+        letter-spacing: 0.2rem;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__header {
+        margin-top: 3.3rem;
+        font-weight: bold;
+        line-height: 7rem;
+        letter-spacing: -0.36rem;
+        font-size: 5.8rem;
+    }
+
+    &__description {
+        margin-top: 2.4rem;
+        font-weight: 500;
+        line-height: 2.8rem;
+        letter-spacing: 0rem;
+        font-size: 1.8rem;
+    }
+}

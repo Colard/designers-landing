@@ -3,7 +3,7 @@ import React from "react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import styles from "./Swiper.module.scss";
+import styles from "./HeroSwiper.module.scss";
 import "swiper/scss";
 import "swiper/scss/pagination";
 
@@ -23,9 +23,10 @@ interface CustomButtonProps {
   swiperRef: React.RefObject<any>;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({ buttonType, swiperRef }) => {
-  console.log(swiperRef)
-
+const CustomButton: React.FC<CustomButtonProps> = ({
+  buttonType,
+  swiperRef,
+}) => {
   const slidePrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev(); // Доступ до інстансу Swiper
@@ -34,21 +35,27 @@ const CustomButton: React.FC<CustomButtonProps> = ({ buttonType, swiperRef }) =>
 
   const slideNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext(); // Доступ до інстансу Swiper
+      swiperRef.current.swiper.slideNext();
     }
   };
 
   return (
-    <i
-      onClick={buttonType == "prev" ? slidePrev : slideNext}
+    <div
       className={
-        styles["swiper__navigation"] +
+        styles["swiper__button-box"] +
         " " +
-        (buttonType == "prev"
-          ? styles["prev"] + " fa fa-angle-left"
-          : styles.next + " fa fa-angle-right")
+        styles[`swiper__button-box_${buttonType}`]
       }
-    ></i>
+      onClick={buttonType == "prev" ? slidePrev : slideNext}
+    >
+      <i
+        className={
+          styles["swiper__navigation"] +
+          " " +
+          (buttonType == "prev" ? " fa fa-angle-left" : " fa fa-angle-right")
+        }
+      ></i>
+    </div>
   );
 };
 

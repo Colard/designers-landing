@@ -1,0 +1,81 @@
+.features {
+  --block-height: 736px;
+
+  background-image: url("../../assets/images/Features/background.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  min-height: var(--block-height);
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+  }
+
+  &__laptop-box {
+    min-height: var(--block-height);
+    height: 100%;
+    flex: 0 0 33.2%;
+    position: relative;
+    left: 0;
+  }
+
+  &__image {
+    height: auto;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  &__laptop-image {
+    width: auto;
+    overflow: visible;
+    max-height: 100%;
+    padding: 10rem 0;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: right;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__swiper-wrap {
+    padding: 0 6.5rem 0 3.3rem;
+    flex: 1;
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  :global {
+    .swiper {
+
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+      );
+
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+}

@@ -4,11 +4,6 @@ import HeroSwiper, { SlideData } from "../../components/HeroSwiper/HeroSwiper";
 import styles from "./Hero.module.scss";
 import React from "react";
 
-type HeroPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
-
 let initialData: SlideData[] = [
   {
     title: "Startup 1",
@@ -43,7 +38,8 @@ let initialData: SlideData[] = [
   },
 ];
 
-interface HeroProps extends HeroPropsWithoutChildren {}
+interface HeroProps
+  extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
 let Hero: React.FC<HeroProps> = React.memo(({ ...rest }) => {
   return (

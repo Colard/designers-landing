@@ -4,45 +4,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Mousewheel } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/pagination";
-
+import { SwiperOptions } from "swiper/types";
 import React from "react";
 
-type SlidePartWithPicturePropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children"
->;
-
-type FeaturesSwiperPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"article">,
-  "children"
->;
-
-type SlidePartWithHeaderPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children"
->;
-
-interface SlideContentProps extends React.ComponentPropsWithoutRef<"div"> {}
-
-interface SlidePartWithHeaderProps
-  extends SlidePartWithHeaderPropsWithoutChildren {
+interface SlidePartWithHeaderProps {
   header: string;
   description: string;
 }
 
-interface FeaturesSwiperProps extends FeaturesSwiperPropsWithoutChildren {}
-
-interface SlidePartWithPictureProps
-  extends SlidePartWithPicturePropsWithoutChildren {
-  imageClass: string;
-  subHeader: string;
-  description: string;
-}
-
 let SlidePartWithHeader: React.FC<SlidePartWithHeaderProps> = React.memo(
-  ({ header, description, ...rest }) => {
+  ({ header, description }) => {
     return (
-      <div className={styles["slide-part-header"]} {...rest}>
+      <div className={styles["slide-part-header"]}>
         <h2 className={styles["slide-part-header__header"]}>{header}</h2>
         <p className={styles["slide-part-header__description"]}>
           {description}
@@ -51,6 +24,13 @@ let SlidePartWithHeader: React.FC<SlidePartWithHeaderProps> = React.memo(
     );
   }
 );
+
+interface SlidePartWithPictureProps
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
+  imageClass: string;
+  subHeader: string;
+  description: string;
+}
 
 let SlidePartWithPicture: React.FC<SlidePartWithPictureProps> = React.memo(
   ({ imageClass, subHeader, description, ...rest }) => {
@@ -68,35 +48,40 @@ let SlidePartWithPicture: React.FC<SlidePartWithPictureProps> = React.memo(
   }
 );
 
-let SlideContent: React.FC<SlideContentProps> = React.memo(
-  ({ children, ...rest }) => {
-    return (
-      <div className={styles["swiper__slide-wrapper"]}>
-        <div className={styles.swiper__slide} {...rest}>
-          {children}
-        </div>
-      </div>
-    );
-  }
-);
+interface SlideContentProps extends React.ComponentPropsWithoutRef<"div"> {}
+
+let SlideContent: React.FC<SlideContentProps> = React.memo(({ children }) => {
+  return (
+    <div className={styles["swiper__slide-wrapper"]}>
+      <div className={styles.swiper__slide}>{children}</div>
+    </div>
+  );
+});
+
+interface FeaturesSwiperProps
+  extends Omit<React.ComponentPropsWithoutRef<"article">, "children"> {}
+
+const FeaturesSwiperOptions: SwiperOptions = {
+  slidesPerView: 1,
+  loop: true,
+  direction: "vertical",
+  mousewheel: true,
+  pagination: {
+    el: "." + styles["swiper__pagination"],
+    clickable: true,
+    renderBullet: (_, className: string) =>
+      `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`,
+  },
+  modules: [Pagination, Mousewheel],
+};
 
 let FeaturesSwiper: React.FC<FeaturesSwiperProps> = React.memo(
   ({ className, ...rest }) => {
+    const swiperSetting = React.useMemo(() => FeaturesSwiperOptions, []);
+
     return (
       <article className={styles.swiper + " " + (className || "")} {...rest}>
-        <Swiper
-          slidesPerView={1}
-          loop={true}
-          direction="vertical"
-          mousewheel={true}
-          pagination={{
-            el: "." + styles["swiper__pagination"],
-            clickable: true,
-            renderBullet: (index, className) =>
-              `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`,
-          }}
-          modules={[Pagination, Mousewheel]}
-        >
+        <Swiper {...swiperSetting}>
           <SwiperSlide>
             <SlideContent>
               <SlidePartWithHeader
@@ -202,6 +187,7 @@ let FeaturesSwiper: React.FC<FeaturesSwiperProps> = React.memo(
             </SlideContent>
           </SwiperSlide>
         </Swiper>
+
         <div className={styles.swiper__pagination}></div>
       </article>
     );

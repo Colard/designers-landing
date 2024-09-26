@@ -3,36 +3,13 @@ import FormContainer from "../../components/FormContainer/FormContainer";
 import styles from "./FormPage.module.scss";
 import Container from "../../components/Container/Container";
 
-type FormPageWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
-interface FormPageProps extends FormPropsWithoutChildren {}
-
-type FormPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"form">,
-  "children"
->;
-interface FormProps extends FormPropsWithoutChildren {}
-
-type LoginFormPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children"
->;
-interface LoginFormProps extends LoginFormPropsWithoutChildren {}
-
-type RegisterFormPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children"
->;
-
 type FormStatus = "register" | "login";
 
-interface LoginFormProps extends RegisterFormPropsWithoutChildren {
+interface LoginFormProps {
   type: FormStatus;
 }
 
-let LoginForm: React.FC<LoginFormProps> = React.memo(({ type, ...rest }) => {
+let LoginForm: React.FC<LoginFormProps> = React.memo(({ type}) => {
   let [email, setemail] = React.useState("");
   let [password, setpassword] = React.useState("");
 
@@ -42,7 +19,7 @@ let LoginForm: React.FC<LoginFormProps> = React.memo(({ type, ...rest }) => {
   };
 
   return (
-    <div className={styles["form-page__form-content"]} {...rest}>
+    <div className={styles["form-page__form-content"]}>
       <input
         onChange={onChange}
         className={styles["form-page__email"] + " " + "text"}
@@ -78,18 +55,17 @@ let LoginForm: React.FC<LoginFormProps> = React.memo(({ type, ...rest }) => {
   );
 });
 
-let Form: React.FC<FormProps> = React.memo(() => {
+let Form: React.FC = React.memo(() => {
   let [formStatus, setformStatus] = React.useState<FormStatus>("register");
   const [isAnimated, setIsAnimated] = React.useState(false);
 
   let onClick = (
     e: React.MouseEvent<HTMLButtonElement>,
-    status: FormStatus,
+    status: FormStatus
   ) => {
     e.preventDefault();
-    if(formStatus != status) setIsAnimated(true);
+    if (formStatus != status) setIsAnimated(true);
     setformStatus(status);
-
   };
 
   return (
@@ -112,7 +88,11 @@ let Form: React.FC<FormProps> = React.memo(() => {
         <div className={styles["form-page__indicator"]}>
           <div
             data-type={formStatus}
-            className={styles["form-page__indicator-line"] + " " + (isAnimated ? styles["animate"] : "")}
+            className={
+              styles["form-page__indicator-line"] +
+              " " +
+              (isAnimated ? styles["animate"] : "")
+            }
           ></div>
         </div>
       </div>
@@ -126,6 +106,9 @@ let Form: React.FC<FormProps> = React.memo(() => {
   );
 });
 
+interface FormPageProps
+  extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
+
 let FormPage: React.FC<FormPageProps> = React.memo(({ ...rest }) => {
   return (
     <section className={styles["form-page"]} {...rest}>
@@ -137,7 +120,8 @@ let FormPage: React.FC<FormPageProps> = React.memo(({ ...rest }) => {
             </h2>
             <p className={styles["form-page__description"]}>
               We have created a new product that will help designers, developers
-              and companies create websites for their startups quickly and easily.
+              and companies create websites for their startups quickly and
+              easily.
             </p>
           </div>
         </div>

@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./Content.module.scss";
 
-type ContentPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
-interface ContentProps extends ContentPropsWithoutChildren {}
+interface ContentProps
+  extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
 let Content: React.FC<ContentProps> = React.memo(({ ...rest }) => {
   return (

@@ -5,11 +5,8 @@ import laptop from "../../assets/images/Features/laptop.png";
 import FeaturesSwiper from "../../components/FeaturesSwiper/FeaturesSwiper";
 import React from "react";
 
-type FeaturesPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
-interface FeaturesProps extends FeaturesPropsWithoutChildren {}
+interface FeaturesProps
+  extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
 let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
   let [swiperContainerHeight, setswiperContainerHeight] = React.useState(0);
@@ -17,7 +14,7 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
 
   React.useLayoutEffect(() => {
     if (!swiperContainerRef.current) return;
-    
+
     const handleResize = (entries: ResizeObserverEntry[]) => {
       if (entries[0].contentRect) {
         const newHeight = entries[0].contentRect.height;
@@ -27,7 +24,7 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
 
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(swiperContainerRef.current);
-    
+
     return () => {
       resizeObserver.disconnect();
     };
@@ -46,7 +43,10 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
           />
         </div>
 
-        <div style={{height: `${swiperContainerHeight}px`}} className={styles["features__swiper-wrap"]}>
+        <div
+          style={{ height: `${swiperContainerHeight}px` }}
+          className={styles["features__swiper-wrap"]}
+        >
           <FeaturesSwiper />
         </div>
       </Container>

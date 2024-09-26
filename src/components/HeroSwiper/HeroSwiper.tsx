@@ -6,16 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./HeroSwiper.module.scss";
 import "swiper/scss";
 import "swiper/scss/pagination";
+import { SwiperOptions } from "swiper/types";
 
 export interface SlideData {
   title: string;
   header: string;
   text: string;
-}
-
-interface SwiperProps
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
-  data: SlideData[];
 }
 
 interface CustomButtonProps {
@@ -70,6 +66,24 @@ const createSlide = (data: SlideData, key?: string | number) => {
   );
 };
 
+interface SwiperProps
+  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
+  data: SlideData[];
+}
+
+const HeroSwiperOptions: SwiperOptions = {
+  slidesPerView: 1,
+  loop: true,
+  pagination: {
+    el: "." + styles["swiper__pagination"],
+    clickable: true,
+    renderBullet: (_, className) => {
+      return `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`;
+    },
+  },
+  modules: [Pagination],
+};
+
 let UniversalSwiper: React.FC<SwiperProps> = React.memo(
   ({ className, data, ...rest }) => {
     const swiperRef = React.useRef<any>(null);
@@ -81,19 +95,7 @@ let UniversalSwiper: React.FC<SwiperProps> = React.memo(
 
     return (
       <div className={styles["swiper"] + " " + (className || "")} {...rest}>
-        <Swiper
-          ref={swiperRef}
-          slidesPerView={1}
-          loop={true}
-          pagination={{
-            el: "." + styles["swiper__pagination"],
-            clickable: true,
-            renderBullet: (index, className) => {
-              return `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`;
-            },
-          }}
-          modules={[Pagination]}
-        >
+        <Swiper ref={swiperRef} {...HeroSwiperOptions}>
           {slides}
 
           <div className={styles["swiper__pagination"]}></div>

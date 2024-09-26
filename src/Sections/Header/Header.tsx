@@ -1,11 +1,8 @@
 import React from "react";
 import styles from "./Header.module.scss";
 
-type HeaderPropsWithoutChildren = Omit<
-  React.ComponentPropsWithoutRef<"header">,
-  "children"
->;
-interface HeaderProps extends HeaderPropsWithoutChildren {}
+interface HeaderProps
+  extends Omit<React.ComponentPropsWithoutRef<"header">, "children"> {}
 
 let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
   return (

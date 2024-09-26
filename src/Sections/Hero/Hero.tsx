@@ -45,7 +45,7 @@ let initialData: SlideData[] = [
 
 interface HeroProps extends HeroPropsWithoutChildren {}
 
-let Hero: React.FC<HeroProps> = ({ ...rest }) => {
+let Hero: React.FC<HeroProps> = React.memo(({ ...rest }) => {
   return (
     <section className={styles.hero} {...rest}>
       <Container>
@@ -57,6 +57,6 @@ let Hero: React.FC<HeroProps> = ({ ...rest }) => {
       </Container>
     </section>
   );
-};
+});
 
 export default Hero;

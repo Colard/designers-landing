@@ -23,41 +23,40 @@ interface CustomButtonProps {
   swiperRef: React.RefObject<any>;
 }
 
-const CustomButton: React.FC<CustomButtonProps> = ({
-  buttonType,
-  swiperRef,
-}) => {
-  const slidePrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slidePrev(); // Доступ до інстансу Swiper
-    }
-  };
-
-  const slideNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
-
-  return (
-    <div
-      className={
-        styles["swiper__button-box"] +
-        " " +
-        styles[`swiper__button-box_${buttonType}`]
+const CustomButton: React.FC<CustomButtonProps> = React.memo(
+  ({ buttonType, swiperRef }) => {
+    const slidePrev = () => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slidePrev();
       }
-      onClick={buttonType == "prev" ? slidePrev : slideNext}
-    >
-      <i
+    };
+
+    const slideNext = () => {
+      if (swiperRef.current && swiperRef.current.swiper) {
+        swiperRef.current.swiper.slideNext();
+      }
+    };
+
+    return (
+      <div
         className={
-          styles["swiper__navigation"] +
+          styles["swiper__button-box"] +
           " " +
-          (buttonType == "prev" ? " fa fa-angle-left" : " fa fa-angle-right")
+          styles[`swiper__button-box_${buttonType}`]
         }
-      ></i>
-    </div>
-  );
-};
+        onClick={buttonType == "prev" ? slidePrev : slideNext}
+      >
+        <i
+          className={
+            styles["swiper__navigation"] +
+            " " +
+            (buttonType == "prev" ? " fa fa-angle-left" : " fa fa-angle-right")
+          }
+        ></i>
+      </div>
+    );
+  }
+);
 
 const createSlide = (data: SlideData, key?: string | number) => {
   return (
@@ -71,35 +70,40 @@ const createSlide = (data: SlideData, key?: string | number) => {
   );
 };
 
-let UniversalSwiper: React.FC<SwiperProps> = ({ className, data, ...rest }) => {
-  const swiperRef = React.useRef<any>(null);
+let UniversalSwiper: React.FC<SwiperProps> = React.memo(
+  ({ className, data, ...rest }) => {
+    const swiperRef = React.useRef<any>(null);
 
-  let slides = React.useMemo(() => data.map((el, i) => createSlide(el, i)), []);
+    let slides = React.useMemo(
+      () => data.map((el, i) => createSlide(el, i)),
+      []
+    );
 
-  return (
-    <div className={styles["swiper"] + " " + (className || "")} {...rest}>
-      <Swiper
-        ref={swiperRef}
-        slidesPerView={1}
-        loop={true}
-        pagination={{
-          el: "." + styles["swiper__pagination"],
-          clickable: true,
-          renderBullet: (index, className) => {
-            return `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`;
-          },
-        }}
-        modules={[Pagination]}
-      >
-        {slides}
+    return (
+      <div className={styles["swiper"] + " " + (className || "")} {...rest}>
+        <Swiper
+          ref={swiperRef}
+          slidesPerView={1}
+          loop={true}
+          pagination={{
+            el: "." + styles["swiper__pagination"],
+            clickable: true,
+            renderBullet: (index, className) => {
+              return `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`;
+            },
+          }}
+          modules={[Pagination]}
+        >
+          {slides}
 
-        <div className={styles["swiper__pagination"]}></div>
-      </Swiper>
+          <div className={styles["swiper__pagination"]}></div>
+        </Swiper>
 
-      <CustomButton buttonType="prev" swiperRef={swiperRef} />
-      <CustomButton buttonType="next" swiperRef={swiperRef} />
-    </div>
-  );
-};
+        <CustomButton buttonType="prev" swiperRef={swiperRef} />
+        <CustomButton buttonType="next" swiperRef={swiperRef} />
+      </div>
+    );
+  }
+);
 
 export default UniversalSwiper;

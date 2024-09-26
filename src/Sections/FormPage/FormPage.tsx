@@ -32,7 +32,7 @@ interface LoginFormProps extends RegisterFormPropsWithoutChildren {
   type: FormStatus;
 }
 
-let LoginForm: React.FC<LoginFormProps> = ({ type, ...rest }) => {
+let LoginForm: React.FC<LoginFormProps> = React.memo(({ type, ...rest }) => {
   let [email, setemail] = React.useState("");
   let [password, setpassword] = React.useState("");
 
@@ -76,9 +76,9 @@ let LoginForm: React.FC<LoginFormProps> = ({ type, ...rest }) => {
       />
     </div>
   );
-};
+});
 
-let Form: React.FC<FormProps> = () => {
+let Form: React.FC<FormProps> = React.memo(() => {
   let [formStatus, setformStatus] = React.useState<FormStatus>("register");
   const [isAnimated, setIsAnimated] = React.useState(false);
 
@@ -124,9 +124,9 @@ let Form: React.FC<FormProps> = () => {
       )}
     </FormContainer>
   );
-};
+});
 
-let FormPage: React.FC<FormPageProps> = ({ ...rest }) => {
+let FormPage: React.FC<FormPageProps> = React.memo(({ ...rest }) => {
   return (
     <section className={styles["form-page"]} {...rest}>
       <Container className={styles["form-page__container"]}>
@@ -148,6 +148,6 @@ let FormPage: React.FC<FormPageProps> = ({ ...rest }) => {
       </Container>
     </section>
   );
-};
+});
 
 export default FormPage;

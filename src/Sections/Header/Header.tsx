@@ -7,7 +7,7 @@ interface HeaderProps
 let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
   return (
     <header className={styles.header} {...rest}>
-      <menu>
+      <nav>
         <ul className={styles["header__menu"]}>
           <li>
             <a className={styles["header__navigate-link"]} href="#">
@@ -45,7 +45,7 @@ let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
             </a>
           </li>
         </ul>
-      </menu>
+      </nav>
     </header>
   );
 });

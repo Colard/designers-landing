@@ -3,15 +3,20 @@ import Features from "./Sections/Features/Features";
 import FormPage from "./Sections/FormPage/FormPage";
 import Header from "./Sections/Header/Header";
 import Hero from "./Sections/Hero/Hero";
+import Testimonial from "./Sections/Testimonial/Testimonial";
 
 function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <Content />
-      <Features />
-      <FormPage />
+      <main>
+        <Hero />
+        <Content />
+        <Features />
+        <FormPage />
+        <Testimonial/>
+      </main>
+
     </>
   );
 }

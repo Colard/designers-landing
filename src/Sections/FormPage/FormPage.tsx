@@ -39,7 +39,7 @@ let LoginForm: React.FC<LoginFormProps> = React.memo(({ type}) => {
       <input
         className={styles["form-page__submit-button"] + " " + "button"}
         type="submit"
-        value={type == "register" ? "Create An Account" : "Login"}
+        value={type == "register" ? "Create an Account" : "Login"}
       />
       <div className={styles["form-page__or"]}>
         <hr className={styles["form-page__or-line"]} />

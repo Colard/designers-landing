@@ -5,6 +5,7 @@ import FormPage from "./Sections/FormPage/FormPage";
 import Header from "./Sections/Header/Header";
 import Hero from "./Sections/Hero/Hero";
 import ShowCase from "./Sections/ShowCase/ShowCase";
+import Team from "./Sections/Team/Team";
 import Testimonial from "./Sections/Testimonial/Testimonial";
 
 function App() {
@@ -19,8 +20,8 @@ function App() {
         <Testimonial />
         <CallToAction />
         <ShowCase />
+        <Team />
       </main>
-
     </>
   );
 }

@@ -50,6 +50,7 @@ let LoginForm: React.FC<LoginFormProps> = React.memo(({ type}) => {
         type="buttom"
         className={styles["form-page__twitter"] + " " + "social-button"}
         value={"Login via Twitter"}
+        readOnly
       />
     </div>
   );

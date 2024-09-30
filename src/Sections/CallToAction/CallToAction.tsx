@@ -21,8 +21,8 @@ let CallToAction: React.FC<CallToActionProps> = React.memo(({ ...rest }) => {
           </p>
         </div>
         <div className={styles["call-to-action__buttons-wrapper"]}>
-          <Button className={styles["call-to-action__youtube-button"]}></Button>
-          <Button className={styles["call-to-action__button"]}>
+          <Button className={styles["call-to-action__youtube-button"] + " " + styles["override"]}></Button>
+          <Button className={styles["call-to-action__button"] + " " + styles["override"]}>
             Get Started
           </Button>
         </div>

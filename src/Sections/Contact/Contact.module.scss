@@ -1,0 +1,99 @@
+.contact {
+    min-height: 77rem;
+    background-image: url(../../assets/images/Contact/background.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__container {
+        display: flex;
+        min-height: 77rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__description-box {
+        max-width: 47rem;
+        width: 100%;
+        padding-right: 5rem;
+        flex: 0 0 50%;
+    }
+
+    &__header {
+        font-size: 4.2rem;
+        font-weight: bold;
+        letter-spacing: -0.4rem;
+        line-height: 5.2rem;
+    }
+
+    &__description {
+
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 3.2rem;
+    }
+
+    &__info-block {
+        display: flex;
+    }
+
+    &__info-item {
+        margin-left: 1.5rem;
+    }
+
+    &__form-wrapper {
+        max-width: 47rem;
+        width: 100%;
+        flex: 0 0 50%;
+    }
+
+    &__form {
+        padding: 5.7rem 5rem;
+    }
+
+    &__form-content {
+
+    }
+
+    &__input-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__input-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        color: var(--form-text);
+    }
+
+    &__input {
+        width: 100%;
+    }
+
+    &__select {
+
+    }
+
+    &__checkbox-wrapper {
+
+    }
+
+    &__checkbox {
+
+    }
+
+    &__checkbox-label {
+
+    }
+
+    &__submit-button {
+
+    }
+
+}

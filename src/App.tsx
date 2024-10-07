@@ -1,4 +1,5 @@
 import CallToAction from "./Sections/CallToAction/CallToAction";
+import Contact from "./Sections/Contact/Contact";
 import Content from "./Sections/Content/Content";
 import Features from "./Sections/Features/Features";
 import FormPage from "./Sections/FormPage/FormPage";
@@ -21,6 +22,7 @@ function App() {
         <CallToAction />
         <ShowCase />
         <Team />
+        <Contact />
       </main>
     </>
   );

@@ -1,21 +1,129 @@
-select {
-    &__hidden {
-        display: none;
+.select {
+  --animation-speed: 0.3s;
+
+  color: var(--form-text);
+  font-weight: 500;
+  font-size: 1.8rem;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+
+  &__hidden {
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: var(--gray) solid 0.2rem;
+    border-radius: 10rem;
+  }
+
+  &__input {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 0 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    border-radius: 10rem;
+  }
+
+  &__dropdown {
+    z-index: 1;
+    visibility: hidden;
+    position: absolute;
+    border: var(--gray) solid 0.2rem;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    top: 100%;
+    width: calc(100% - 2rem);
+    max-height: 10rem;
+    overflow-y: scroll;
+
+    animation: disappear var(--animation-speed) ease forwards;
+
+    &::-webkit-scrollbar {
+      width: 5px;
     }
 
-    &__container {
-
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
     }
 
-    &__input {
-
+    &::-webkit-scrollbar-thumb {
+      background: gray;
     }
 
-    &__list {
+    &::-webkit-scrollbar-thumb:hover {
+      background: darkgray;
+    }
+  }
 
+  &__dropdown_active {
+    animation: appear var(--animation-speed) ease forwards;
+  }
+
+  &__dropdown_hidden {
+    display: none;
+  }
+
+  &__icon {
+    transition: all var(--animation-speed) ease;
+  }
+
+  &__icon_active {
+    transform: rotateX(180deg);
+  }
+
+  &__list {
+    cursor: pointer;
+  }
+
+  &__item {
+    padding: 0.5rem;
+    &:hover {
+      background-color: var(--gray);
     }
 
-    &__item {
-
-    }
+    border-bottom: var(--gray) solid 0.2rem;
+  }
 }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    visibility: visible;
+    left: 50%;
+    transform: translate(-50%, -3rem);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    left: 50%;
+    transform: translate(-50%, 0rem);
+  }
+}
+
+@keyframes disappear {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      left: 50%;
+      transform: translate(-50%, 0rem);
+    }
+    100% {
+      opacity: 0;
+      visibility: visible;
+      left: 50%;
+      transform: translate(-50%, -3rem);
+    }
+  }
+  

@@ -13,27 +13,32 @@
     }
 
     &__description-box {
-        max-width: 47rem;
+        max-width: 41rem;
         width: 100%;
-        padding-right: 5rem;
+        margin-right: 9rem;
         flex: 0 0 50%;
     }
 
     &__header {
         font-size: 4.2rem;
-        font-weight: bold;
+        font-weight: 600;
         letter-spacing: -0.4rem;
         line-height: 5.2rem;
     }
 
     &__description {
-
+        margin-top: 2.8rem;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 3.2rem;
     }
 
     &__info {
         display: flex;
         flex-direction: column;
         gap: 3.2rem;
+        max-width: 28.4rem;
+        margin-top: 5.3rem;
     }
 
     &__info-block {
@@ -61,6 +66,8 @@
     &__input-row {
         display: flex;
         flex-direction: row;
+
+        gap: 3rem;
     }
 
     &__input-column {
@@ -68,8 +75,29 @@
         flex-direction: column;
     }
 
+    &__input-budget {
+        flex: 0 0 14rem;
+    }
+
     &__label {
-        color: var(--form-text);
+        color: var(--form-heading);
+        font-weight: bold;
+        font-size: 1.4rem;
+        line-height: 2.6rem;
+        letter-spacing: 0.2rem;
+        text-transform: uppercase;
+    }
+
+    &__label-email {
+        margin-top: 3.5rem;
+        margin-bottom: 0.6rem;
+        display: inline-block;
+    }
+    
+    &__label-message {
+        margin-top: 3.5rem;
+        margin-bottom: 0.6rem;
+        display: inline-block;
     }
 
     &__input {
@@ -77,19 +105,29 @@
     }
 
     &__select {
+        height: 5rem;
+    }
 
+    &__input-checkbox {
+        display: flex;
+        justify-content: space-between;
     }
 
     &__checkbox-wrapper {
-
+        display: flex;
+        align-items: center;
     }
 
     &__checkbox {
-
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.6rem;
     }
 
     &__checkbox-label {
-
+        color: var(--form-text);
+        opacity: 0.4;
+        margin-left: 1.2rem;
     }
 
     &__submit-button {

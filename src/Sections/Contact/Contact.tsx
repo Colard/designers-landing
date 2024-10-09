@@ -23,16 +23,29 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
             />
           </div>
 
-          <div className={styles["contact__input-column"]}>
+          <div
+            className={
+              styles["contact__input-column"] +
+              " " +
+              styles["contact__input-budget"]
+            }
+          >
             <label className={styles["contact__label"]} htmlFor="budget">
               BUDGET
             </label>
             <Select
-            
               options={[
                 { value: "500", text: "$500" },
                 { value: "1000", text: "$1000" },
                 { value: "2000", text: "$2000" },
+                { value: "1000", text: "$3000" },
+                { value: "2000", text: "$4000" },
+                { value: "1000", text: "$5000" },
+                { value: "2000", text: "$6000" },
+                { value: "1000", text: "$7000" },
+                { value: "2000", text: "$8000" },
+                { value: "2000", text: "$9000" },
+                { value: "2000", text: "$10000" },
               ]}
               name="budget"
               className={`${styles["contact__select"]}`}
@@ -40,7 +53,7 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           </div>
         </div>
 
-        <label className={styles["contact__label"]} htmlFor="email">
+        <label className={styles["contact__label"] + " " + styles["contact__label-email"]} htmlFor="email">
           INPUT FIELD
         </label>
         <input
@@ -49,17 +62,18 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           placeholder="name@mail.com"
         />
 
-        <label className={styles["contact__label"]} htmlFor="message">
+        <label className={styles["contact__label"]  + " " + styles["contact__label-message"]} htmlFor="message">
           YOUR MESSAGE
         </label>
-        <input
-          multiple
+        <textarea
+          maxLength={500}
           className={`${styles["contact__input"]}  text`}
           name="message"
           placeholder="Message"
+          autoComplete="off"
         />
 
-        <div className={styles["contact__input-row"]}>
+        <div className={styles["contact__input-row"] + " " + styles["contact__input-checkbox"]}>
           <div className={styles["contact__checkbox-wrapper"]}>
             <input type="checkbox" className={styles["contact__checkbox"]} />
             <label

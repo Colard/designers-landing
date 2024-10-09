@@ -3,7 +3,7 @@
   border-radius: 1rem;
   overflow: hidden;
 
-  input {
+  input, textarea {
     height: 5rem;
     background-color: var(--white);
     border-radius: 10rem;
@@ -16,6 +16,33 @@
       opacity: 0.4;
       height: 5rem;
     }
+  }
+
+  textarea {
+    height: 11rem;
+    border-radius: 1rem;
+    resize: none;
+    padding: 1.2rem 2.4rem 0 2.4rem;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: gray;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: darkgray;
+    }
+  }
+
+  textarea:focus {
+    outline: none;
   }
 
   :global {
@@ -35,7 +62,7 @@
         font-weight: 500;
     }
 
-    input.text {
+    input.text, textarea {
         border: var(--gray) solid 0.2rem;
         padding-left: 2.4rem;
     }

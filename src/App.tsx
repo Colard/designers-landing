@@ -2,6 +2,7 @@ import CallToAction from "./Sections/CallToAction/CallToAction";
 import Contact from "./Sections/Contact/Contact";
 import Content from "./Sections/Content/Content";
 import Features from "./Sections/Features/Features";
+import Footer from "./Sections/Footer/Footer";
 import FormPage from "./Sections/FormPage/FormPage";
 import Header from "./Sections/Header/Header";
 import Hero from "./Sections/Hero/Hero";
@@ -15,17 +16,18 @@ function App() {
     <>
       <Header />
       <main>
-        <Hero />
-        <Content />
-        <Features />
-        <FormPage />
-        <Testimonial />
-        <CallToAction />
-        <ShowCase />
-        <Team />
-        <Contact />
-        <PricingTable />
+        <Hero id="hero"/>
+        <Content id="content"/>
+        <Features id="features"/>
+        <FormPage id="form-page"/>
+        <Testimonial id="testimonial"/>
+        <CallToAction id="call-to-action"/>
+        <ShowCase id="show-case"/>
+        <Team id="team"/>
+        <Contact id="contact"/>
+        <PricingTable id="pricing-table"/>
       </main>
+      <Footer />
     </>
   );
 }

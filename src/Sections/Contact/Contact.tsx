@@ -1,3 +1,4 @@
+import Checkbox from "../../components/Checkbox/Checkbox";
 import Container from "../../components/Container/Container";
 import FormContainer from "../../components/FormContainer/FormContainer";
 import Select from "../../components/Select/Select";
@@ -75,7 +76,7 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
 
         <div className={styles["contact__input-row"] + " " + styles["contact__input-checkbox"]}>
           <div className={styles["contact__checkbox-wrapper"]}>
-            <input type="checkbox" className={styles["contact__checkbox"]} />
+            <Checkbox/>
             <label
               className={styles["contact__checkbox-label"]}
               htmlFor="checkbox"

@@ -111,6 +111,7 @@
     &__input-checkbox {
         display: flex;
         justify-content: space-between;
+        margin-top: 3rem;
     }
 
     &__checkbox-wrapper {
@@ -131,7 +132,11 @@
     }
 
     &__submit-button {
-
+        transition: all 0.3s ease;
+        width: 12rem;
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
 }

@@ -39,14 +39,14 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
                 { value: "500", text: "$500" },
                 { value: "1000", text: "$1000" },
                 { value: "2000", text: "$2000" },
-                { value: "1000", text: "$3000" },
-                { value: "2000", text: "$4000" },
-                { value: "1000", text: "$5000" },
-                { value: "2000", text: "$6000" },
-                { value: "1000", text: "$7000" },
-                { value: "2000", text: "$8000" },
-                { value: "2000", text: "$9000" },
-                { value: "2000", text: "$10000" },
+                { value: "3000", text: "$3000" },
+                { value: "4000", text: "$4000" },
+                { value: "5000", text: "$5000" },
+                { value: "6000", text: "$6000" },
+                { value: "7000", text: "$7000" },
+                { value: "8000", text: "$8000" },
+                { value: "9000", text: "$9000" },
+                { value: "10000", text: "$10000" },
               ]}
               name="budget"
               className={`${styles["contact__select"]}`}
@@ -54,16 +54,27 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           </div>
         </div>
 
-        <label className={styles["contact__label"] + " " + styles["contact__label-email"]} htmlFor="email">
+        <label
+          className={
+            styles["contact__label"] + " " + styles["contact__label-email"]
+          }
+          htmlFor="email"
+        >
           INPUT FIELD
         </label>
         <input
           className={`${styles["contact__input"]}  text`}
           name="email"
           placeholder="name@mail.com"
+          type="email"
         />
 
-        <label className={styles["contact__label"]  + " " + styles["contact__label-message"]} htmlFor="message">
+        <label
+          className={
+            styles["contact__label"] + " " + styles["contact__label-message"]
+          }
+          htmlFor="message"
+        >
           YOUR MESSAGE
         </label>
         <textarea
@@ -74,9 +85,15 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           autoComplete="off"
         />
 
-        <div className={styles["contact__input-row"] + " " + styles["contact__input-checkbox"]}>
+        <div
+          className={
+            styles["contact__input-row"] +
+            " " +
+            styles["contact__input-checkbox"]
+          }
+        >
           <div className={styles["contact__checkbox-wrapper"]}>
-            <Checkbox/>
+            <Checkbox markClass="fa fa-check" name="send-me-a-copy" />
             <label
               className={styles["contact__checkbox-label"]}
               htmlFor="checkbox"

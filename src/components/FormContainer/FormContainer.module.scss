@@ -3,6 +3,10 @@
   border-radius: 1rem;
   overflow: hidden;
 
+  label {
+    cursor:default;
+  }
+
   input, textarea {
     height: 5rem;
     background-color: var(--white);

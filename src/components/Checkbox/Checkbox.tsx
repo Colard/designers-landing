@@ -9,12 +9,12 @@ interface CheckboxProps
 }
 
 let Checkbox: React.FC<CheckboxProps> = React.memo(
-  ({ className, active = false, name, ...rest }) => {
+  ({ className, active = false, name, markClass, ...rest }) => {
     let [isActive, setIsActive] = React.useState(active);
-    
+
     const handleChange = () => {
-        setIsActive(!isActive);
-      };
+      setIsActive(!isActive);
+    };
 
     return (
       <div
@@ -33,7 +33,12 @@ let Checkbox: React.FC<CheckboxProps> = React.memo(
         />
         <i
           className={
-            styles["checkbox__icon"] + " " + (isActive ? styles.active : "")
+            (markClass ||
+            "") +
+              " " +
+              styles["checkbox__icon"] +
+              " " +
+              (isActive ? styles.active : "")
           }
         ></i>
       </div>

@@ -5,6 +5,7 @@ import Features from "./Sections/Features/Features";
 import FormPage from "./Sections/FormPage/FormPage";
 import Header from "./Sections/Header/Header";
 import Hero from "./Sections/Hero/Hero";
+import PricingTable from "./Sections/PricingTable/PricingTable";
 import ShowCase from "./Sections/ShowCase/ShowCase";
 import Team from "./Sections/Team/Team";
 import Testimonial from "./Sections/Testimonial/Testimonial";
@@ -23,6 +24,7 @@ function App() {
         <ShowCase />
         <Team />
         <Contact />
+        <PricingTable />
       </main>
     </>
   );

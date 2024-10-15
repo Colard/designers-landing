@@ -23,3 +23,28 @@
     margin-top: 1.2rem;
   }
 }
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__slider {
+      width: 100%;
+    }
+    padding-top: 7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding-top: 7rem;
+  }
+}

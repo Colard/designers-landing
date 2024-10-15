@@ -40,3 +40,24 @@
     gap: 2.8rem;
   }
 }
+
+@media (max-width: 1024px) {
+  .footer {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    &__row {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+  }
+}

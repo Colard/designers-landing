@@ -76,3 +76,11 @@
         letter-spacing: 0;
     }
 }
+
+@media (max-width: 1024px) {
+  .swiper {
+    &__slide {
+      width: 100%;
+    }
+  }
+}

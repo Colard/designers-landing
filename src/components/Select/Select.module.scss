@@ -48,6 +48,7 @@
     max-height: 10rem;
     overflow-y: scroll;
 
+    transform: translateZ(0);
     animation: disappear var(--animation-speed) ease forwards;
 
     &::-webkit-scrollbar {
@@ -102,28 +103,27 @@
     opacity: 0;
     visibility: visible;
     left: 50%;
-    transform: translate(-50%, -3rem);
+    transform: translate3d(-50%, -3rem, 0) translateZ(0);
   }
   100% {
     opacity: 1;
     visibility: visible;
     left: 50%;
-    transform: translate(-50%, 0rem);
+    transform: translate3d(-50%, 0rem, 0) translateZ(0);
   }
 }
 
 @keyframes disappear {
-    0% {
-      opacity: 1;
-      visibility: visible;
-      left: 50%;
-      transform: translate(-50%, 0rem);
-    }
-    100% {
-      opacity: 0;
-      visibility: visible;
-      left: 50%;
-      transform: translate(-50%, -3rem);
-    }
+  0% {
+    opacity: 1;
+    visibility: visible;
+    left: 50%;
+    transform: translate3d(-50%, 0rem, 0) translateZ(0);
   }
-  
+  100% {
+    opacity: 0;
+    visibility: visible;
+    left: 50%;
+    transform: translate3d(-50%, -3rem, 0) translateZ(0);
+  }
+}

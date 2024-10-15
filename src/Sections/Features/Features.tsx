@@ -15,23 +15,36 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
   React.useLayoutEffect(() => {
     if (!swiperContainerRef.current) return;
 
-    const handleResize = (entries: ResizeObserverEntry[]) => {
-      if (entries[0].contentRect) {
-        const newHeight = entries[0].contentRect.height;
-        setswiperContainerHeight(newHeight);
+    const handleResize = () => {
+      if (!swiperContainerRef?.current?.parentElement) return;
+
+      const parentRect = swiperContainerRef.current.parentElement?.getBoundingClientRect();
+
+      const computedStyles = getComputedStyle(
+        swiperContainerRef.current.parentElement
+      );
+      const paddingTop = parseFloat(computedStyles.paddingTop);
+      const paddingBottom = parseFloat(computedStyles.paddingBottom);
+
+      if (parentRect) {
+        const parentHeight = parentRect.height - paddingTop - paddingBottom;
+
+        const adjustedHeight = parentHeight;
+        setswiperContainerHeight(adjustedHeight);
       }
     };
 
-    const resizeObserver = new ResizeObserver(handleResize);
-    resizeObserver.observe(swiperContainerRef.current);
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
 
     return () => {
-      resizeObserver.disconnect();
+      window.removeEventListener("resize", handleResize);
     };
   }, [swiperContainerHeight]);
 
   return (
-    <section ref={swiperContainerRef} className={styles.features} {...rest}>
+    <section className={styles.features} {...rest}>
       <Container className={styles.features__container}>
         <div className={styles["features__laptop-box"]}>
           <img
@@ -44,6 +57,7 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
         </div>
 
         <div
+          ref={swiperContainerRef}
           style={{ height: `${swiperContainerHeight}px` }}
           className={styles["features__swiper-wrap"]}
         >

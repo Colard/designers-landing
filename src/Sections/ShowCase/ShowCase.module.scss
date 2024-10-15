@@ -98,3 +98,25 @@
     text-align: center;
   }
 }
+
+@media (max-width: 1024px) {
+  .show-case {
+    &__header-wrapper {
+      margin-top: 0;
+    }
+
+    &__works-wrapper {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .show-case {
+  }
+}
+
+@media (max-width: 320px) {
+  .show-case {
+  }
+}

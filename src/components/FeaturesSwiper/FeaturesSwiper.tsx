@@ -1,7 +1,7 @@
 import styles from "./FeaturesSwiper.module.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Mousewheel } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import { SwiperOptions } from "swiper/types";
@@ -65,14 +65,13 @@ const FeaturesSwiperOptions: SwiperOptions = {
   slidesPerView: 1,
   loop: true,
   direction: "vertical",
-  mousewheel: true,
   pagination: {
     el: "." + styles["swiper__pagination"],
     clickable: true,
     renderBullet: (_, className: string) =>
       `<span class="${className} ${styles["swiper__pagination-bullet"]}"></span>`,
   },
-  modules: [Pagination, Mousewheel],
+  modules: [Pagination],
 };
 
 let FeaturesSwiper: React.FC<FeaturesSwiperProps> = React.memo(

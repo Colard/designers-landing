@@ -79,3 +79,27 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .features {
+    &__laptop-box {
+      display: none;
+    }
+
+    &__swiper-wrap {
+      padding: 6.4rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+
+  }
+}
+
+@media (max-width: 320px) {
+  .features {
+
+  }
+}

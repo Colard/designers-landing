@@ -9,9 +9,9 @@ let Content: React.FC<ContentProps> = React.memo(({ ...rest }) => {
     <section className={styles.content} {...rest}>
       <div className={styles["content__text-block"]}>
         <p className={styles["content__title"]}>Free Sample</p>
-        <h2 className={styles.content__header}>
+        <h1 className={styles.content__header}>
           Powerful Generator and Free Figma Sources{" "}
-        </h2>
+        </h1>
         <p className={styles.content__description}>
           Startup Framework contains components and complex blocks which can
           easily be integrated into almost any design. All of the components are

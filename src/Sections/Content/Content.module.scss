@@ -6,7 +6,9 @@
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 10.7rem;
+    display: flex;
+    align-items: center;
+    padding: 2.5rem;
 
     &__text-block {
         width: 100%;

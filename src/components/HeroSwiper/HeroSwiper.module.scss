@@ -105,3 +105,32 @@
     margin-top: 3.8rem;
   }
 }
+
+@media (max-width: 1024px) {
+  .swiper {
+
+    &__button-box {
+      display: none;
+    }
+
+    :global {
+      .swiper {
+        mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 5%,
+          rgba(0, 0, 0, 1) 95%,
+          rgba(0, 0, 0, 0) 100%
+        );
+  
+        -webkit-mask-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 5%,
+          rgba(0, 0, 0, 1) 95%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+    }
+  }
+}

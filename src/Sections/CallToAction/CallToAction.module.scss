@@ -16,7 +16,7 @@
 
   &__text-wrapper {
     text-align: center;
-    width: 77rem;
+    width: 100%;
     max-width: 52rem;
   }
 
@@ -78,11 +78,14 @@
 
 @media (max-width: 768px) {
   .call-to-action  {
-  }
-}
 
-@media (max-width: 320px) {
-  .call-to-action  {
+    &__header {
+      font-size: 4.8rem;
+    }
+
+    &__description {
+      font-size: 2rem;
+    }
   }
 }
 

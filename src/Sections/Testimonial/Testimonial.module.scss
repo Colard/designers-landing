@@ -113,7 +113,10 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 426px) {
   .testimonial {
+    &__image-wrapper {
+        display: none;
+    }
   }
 }

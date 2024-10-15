@@ -45,7 +45,8 @@
   }
 
   &__form-wrapper {
-    width: 47rem;
+    max-width: 47rem;
+    width: 100%;
   }
 
   &__form {
@@ -257,12 +258,28 @@
 
 @media (max-width: 768px) {
   .form-page {
+    &__header {
+      font-size: 3.2rem;
+    }
 
-  }
-}
+    &__email {
+      margin-top: 4rem;
+    }
 
-@media (max-width: 320px) {
-  .form-page {
+    &__twitter {
+      margin-bottom: 4rem;
+    }
 
+    &__password {
+      margin-top: 2rem;
+    }
+
+    &__submit-button {
+      margin-top: 2rem;
+    }
+
+    &__form-content {
+      padding: 0 3rem;
+    }
   }
 }

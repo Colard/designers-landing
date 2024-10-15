@@ -190,10 +190,14 @@
 
 @media (max-width: 768px) {
   .pricing-table {
+    &__container {
+      padding: 3.2rem 0;
+    }
   }
 }
 
-@media (max-width: 320px) {
-  .pricing-table {
+@media (max-width: 426px) {
+  .price-column {
+    padding: 3.2rem;
   }
 }

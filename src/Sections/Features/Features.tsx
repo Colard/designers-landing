@@ -5,12 +5,15 @@ import laptop from "../../assets/images/Features/laptop.png";
 import FeaturesSwiper from "../../components/FeaturesSwiper/FeaturesSwiper";
 import React from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 interface FeaturesProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
 let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
   let [swiperContainerHeight, setswiperContainerHeight] = React.useState(0);
   let swiperContainerRef = React.useRef<HTMLDivElement | null>(null);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   React.useLayoutEffect(() => {
     if (!swiperContainerRef.current) return;
@@ -58,7 +61,7 @@ let Features: React.FC<FeaturesProps> = ({ ...rest }) => {
 
         <div
           ref={swiperContainerRef}
-          style={{ height: `${swiperContainerHeight}px` }}
+          style={isMobile ? {} : { height: `${swiperContainerHeight}px` }}
           className={styles["features__swiper-wrap"]}
         >
           <FeaturesSwiper />

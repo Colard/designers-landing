@@ -54,10 +54,11 @@
 
 @media (max-width: 768px) {
   .footer {
+    &__nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
   }
 }
 
-@media (max-width: 320px) {
-  .footer {
-  }
-}

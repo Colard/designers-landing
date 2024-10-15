@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/effect-coverflow";
 
-import { EffectCoverflow } from "swiper/modules";
+
 interface Service {
   name: string;
   isActive: boolean;

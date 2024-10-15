@@ -49,10 +49,12 @@ let Person: React.FC<PersonProps> = React.memo(
     return (
       <div className={styles["team__member"]}>
         <img className={styles["team__member-image"]} src={image} />
-        <h3 className={styles["team__member-name"]}>{name}</h3>
-        <p className={styles["team__member-profession"]}>{profession}</p>
-        <div className={styles["team__member-links"]}>
-          {links && links.map((el) => <IcoLink key={el.name} link={el} />)}
+        <div className={styles["team__member-info"]}>
+          <h3 className={styles["team__member-name"]}>{name}</h3>
+          <p className={styles["team__member-profession"]}>{profession}</p>
+          <div className={styles["team__member-links"]}>
+            {links && links.map((el) => <IcoLink key={el.name} link={el} />)}
+          </div>
         </div>
       </div>
     );
@@ -66,65 +68,63 @@ let Team: React.FC<TeamProps> = React.memo(({ ...rest }) => {
   return (
     <section className={styles["team"]} {...rest}>
       <Container className={styles["team__container"]}>
+        <h2 className={styles["team__header"]}>Startup Crew</h2>
+        <p className={styles["team__description"]}>
+          The most important part of the Startup Framework is the samples. The
+          samples form a set of 25 usable pages you can use as is or you can add
+          new blocks from UI Kit.
+        </p>
+        <div className={styles["team__members"]}>
+          <Person
+            image={image1}
+            name="Leah Salomon"
+            profession="UI Designer"
+            links={[
+              { name: LinkTypes.Twitter, url: "#" },
+              { name: LinkTypes.Facebook, url: "#" },
+              { name: LinkTypes.Dribbble, url: "#" },
+              { name: LinkTypes.Instagram, url: "#" },
+            ]}
+          />
 
-          <h2 className={styles["team__header"]}>Startup Crew</h2>
-          <p className={styles["team__description"]}>
-            The most important part of the Startup Framework is the samples. The
-            samples form a set of 25 usable pages you can use as is or you can
-            add new blocks from UI Kit.
-          </p>
-          <div className={styles["team__members"]}>
-            <Person
-              image={image1}
-              name="Leah Salomon"
-              profession="UI Designer"
-              links={[
-                { name: LinkTypes.Twitter, url: "#" },
-                { name: LinkTypes.Facebook, url: "#" },
-                { name: LinkTypes.Dribbble, url: "#" },
-                { name: LinkTypes.Instagram, url: "#" },
-              ]}
-            />
+          <Person
+            image={image2}
+            name="Colin Timmons"
+            profession="UX Designer"
+            links={[
+              { name: LinkTypes.Twitter, url: "#" },
+              { name: LinkTypes.Dribbble, url: "#" },
+            ]}
+          />
 
-            <Person
-              image={image2}
-              name="Colin Timmons"
-              profession="UX Designer"
-              links={[
-                { name: LinkTypes.Twitter, url: "#" },
-                { name: LinkTypes.Dribbble, url: "#" },
-              ]}
-            />
+          <Person
+            image={image3}
+            name="Miguel Osborne"
+            profession="Front-end Developer"
+            links={[
+              { name: LinkTypes.Skype, url: "#" },
+              { name: LinkTypes.Medium, url: "#" },
+              { name: LinkTypes.Git, url: "#" },
+            ]}
+          />
 
-            <Person
-              image={image3}
-              name="Miguel Osborne"
-              profession="Front-end Developer"
-              links={[
-                { name: LinkTypes.Skype, url: "#" },
-                { name: LinkTypes.Medium, url: "#" },
-                { name: LinkTypes.Git, url: "#" },
-              ]}
-            />
+          <Person
+            image={image4}
+            name="Taylor Simon"
+            profession="Product Manager"
+            links={[
+              { name: LinkTypes.Twitter, url: "#" },
+              { name: LinkTypes.Instagram, url: "#" },
+            ]}
+          />
 
-            <Person
-              image={image4}
-              name="Taylor Simon"
-              profession="Product Manager"
-              links={[
-                { name: LinkTypes.Twitter, url: "#" },
-                { name: LinkTypes.Instagram, url: "#" },
-              ]}
-            />
-
-            <Person
-              image={image5}
-              name="Steven MacAlister"
-              profession="Copyrighter"
-              links={[{ name: LinkTypes.Twitter, url: "#" }]}
-            />
-          </div>
-
+          <Person
+            image={image5}
+            name="Steven MacAlister"
+            profession="Copyrighter"
+            links={[{ name: LinkTypes.Twitter, url: "#" }]}
+          />
+        </div>
       </Container>
     </section>
   );

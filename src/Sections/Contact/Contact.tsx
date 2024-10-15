@@ -16,12 +16,12 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           <div className={styles["contact__input-column"]}>
             <label className={styles["contact__label"]} htmlFor="name">
               YOUR NAME
+              <input
+                className={`${styles["contact__input"]} text`}
+                name="name"
+                placeholder="Firs name"
+              />
             </label>
-            <input
-              className={`${styles["contact__input"]} text`}
-              name="name"
-              placeholder="Firs name"
-            />
           </div>
 
           <div
@@ -33,24 +33,24 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           >
             <label className={styles["contact__label"]} htmlFor="budget">
               BUDGET
+              <Select
+                options={[
+                  { value: "500", text: "$500" },
+                  { value: "1000", text: "$1000" },
+                  { value: "2000", text: "$2000" },
+                  { value: "3000", text: "$3000" },
+                  { value: "4000", text: "$4000" },
+                  { value: "5000", text: "$5000" },
+                  { value: "6000", text: "$6000" },
+                  { value: "7000", text: "$7000" },
+                  { value: "8000", text: "$8000" },
+                  { value: "9000", text: "$9000" },
+                  { value: "10000", text: "$10000" },
+                ]}
+                name="budget"
+                className={`${styles["contact__select"]}`}
+              />
             </label>
-            <Select
-              options={[
-                { value: "500", text: "$500" },
-                { value: "1000", text: "$1000" },
-                { value: "2000", text: "$2000" },
-                { value: "3000", text: "$3000" },
-                { value: "4000", text: "$4000" },
-                { value: "5000", text: "$5000" },
-                { value: "6000", text: "$6000" },
-                { value: "7000", text: "$7000" },
-                { value: "8000", text: "$8000" },
-                { value: "9000", text: "$9000" },
-                { value: "10000", text: "$10000" },
-              ]}
-              name="budget"
-              className={`${styles["contact__select"]}`}
-            />
           </div>
         </div>
 
@@ -61,13 +61,13 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           htmlFor="email"
         >
           INPUT FIELD
+          <input
+            className={`${styles["contact__input"]}  text`}
+            name="email"
+            placeholder="name@mail.com"
+            type="email"
+          />
         </label>
-        <input
-          className={`${styles["contact__input"]}  text`}
-          name="email"
-          placeholder="name@mail.com"
-          type="email"
-        />
 
         <label
           className={
@@ -76,14 +76,14 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
           htmlFor="message"
         >
           YOUR MESSAGE
+          <textarea
+            maxLength={500}
+            className={`${styles["contact__input"]}  text`}
+            name="message"
+            placeholder="Message"
+            autoComplete="off"
+          />
         </label>
-        <textarea
-          maxLength={500}
-          className={`${styles["contact__input"]}  text`}
-          name="message"
-          placeholder="Message"
-          autoComplete="off"
-        />
 
         <div
           className={

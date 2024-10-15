@@ -146,28 +146,46 @@
     }
 
     &__description-box {
-      text-align: center;
+      text-align: left;
       margin: 0;
       max-width: 47rem;
     }
 
     &__description {
-        display: none;
+      display: none;
     }
 
     &__info {
-        margin: 2rem auto;
+      margin: 2rem auto;
+    }
 
+    &__header {
+      text-align: center;
     }
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 426px) {
   .contact {
-  }
-}
+    &__form {
+      padding: 2.4rem;
+    }
 
-@media (max-width: 320px) {
-  .contact {
+    &__input-row:nth-of-type(1) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &__label-email {
+      margin-top: 2rem;
+    }
+
+    &__label-message {
+      margin-top: 2rem;
+    }
+    
+    &__input-budget {
+      flex: none;
+    }
   }
 }

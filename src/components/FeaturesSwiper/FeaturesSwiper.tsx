@@ -7,6 +7,8 @@ import "swiper/scss/pagination";
 import { SwiperOptions } from "swiper/types";
 import React from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 interface SlidePartWithHeaderProps {
   header: string;
   description: string;
@@ -77,6 +79,13 @@ const FeaturesSwiperOptions: SwiperOptions = {
 let FeaturesSwiper: React.FC<FeaturesSwiperProps> = React.memo(
   ({ className, ...rest }) => {
     const swiperSetting = React.useMemo(() => FeaturesSwiperOptions, []);
+    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
+    if (isMobile) {
+      swiperSetting.direction = "horizontal";
+    } else {
+      swiperSetting.direction = "vertical";
+    }
 
     return (
       <article className={styles.swiper + " " + (className || "")} {...rest}>

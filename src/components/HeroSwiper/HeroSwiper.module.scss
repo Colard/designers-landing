@@ -134,3 +134,16 @@
     }
   }
 }
+
+@media (max-width: 736px) {
+  .slide {
+    &__header {
+      font-size: 5.6rem;
+      line-height: 100%;
+    }
+
+    &__text {
+      font-size: 1.8rem;
+    }
+  }
+}

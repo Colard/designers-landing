@@ -124,6 +124,7 @@ const Select: React.FC<SelectProps> = React.memo(
               }`}
               src={arrow}
               draggable="false"
+              alt="arrow"
             />
           </div>
 

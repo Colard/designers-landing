@@ -48,7 +48,7 @@ let Person: React.FC<PersonProps> = React.memo(
   ({ name, profession, image, links }) => {
     return (
       <div className={styles["team__member"]}>
-        <img className={styles["team__member-image"]} src={image} />
+        <img className={styles["team__member-image"]} src={image} alt={name}/>
         <div className={styles["team__member-info"]}>
           <h3 className={styles["team__member-name"]}>{name}</h3>
           <p className={styles["team__member-profession"]}>{profession}</p>

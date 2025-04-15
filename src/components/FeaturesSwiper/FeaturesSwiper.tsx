@@ -14,18 +14,17 @@ interface SlidePartWithHeaderProps {
   description: string;
 }
 
-let SlidePartWithHeader: React.FC<SlidePartWithHeaderProps> = React.memo(
-  ({ header, description }) => {
-    return (
-      <div className={styles["slide-part-header"]}>
-        <h2 className={styles["slide-part-header__header"]}>{header}</h2>
-        <p className={styles["slide-part-header__description"]}>
-          {description}
-        </p>
-      </div>
-    );
-  }
-);
+let SlidePartWithHeader: React.FC<SlidePartWithHeaderProps> = ({
+  header,
+  description,
+}) => {
+  return (
+    <div className={styles["slide-part-header"]}>
+      <h2 className={styles["slide-part-header__header"]}>{header}</h2>
+      <p className={styles["slide-part-header__description"]}>{description}</p>
+    </div>
+  );
+};
 
 interface SlidePartWithPictureProps
   extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
@@ -34,31 +33,30 @@ interface SlidePartWithPictureProps
   description: string;
 }
 
-let SlidePartWithPicture: React.FC<SlidePartWithPictureProps> = React.memo(
-  ({ imageClass, subHeader, description, ...rest }) => {
-    return (
-      <div className={styles["slide-part-picture"]} {...rest}>
-        <i
-          className={imageClass + " " + styles["slide-part-picture__image"]}
-        ></i>
-        <h3 className={styles["slide-part-picture__header"]}>{subHeader}</h3>
-        <p className={styles["slide-part-picture__description"]}>
-          {description}
-        </p>
-      </div>
-    );
-  }
-);
+let SlidePartWithPicture: React.FC<SlidePartWithPictureProps> = ({
+  imageClass,
+  subHeader,
+  description,
+  ...rest
+}) => {
+  return (
+    <div className={styles["slide-part-picture"]} {...rest}>
+      <i className={imageClass + " " + styles["slide-part-picture__image"]}></i>
+      <h3 className={styles["slide-part-picture__header"]}>{subHeader}</h3>
+      <p className={styles["slide-part-picture__description"]}>{description}</p>
+    </div>
+  );
+};
 
 interface SlideContentProps extends React.ComponentPropsWithoutRef<"div"> {}
 
-let SlideContent: React.FC<SlideContentProps> = React.memo(({ children }) => {
+let SlideContent: React.FC<SlideContentProps> = ({ children }) => {
   return (
     <div className={styles["swiper__slide-wrapper"]}>
       <div className={styles.swiper__slide}>{children}</div>
     </div>
   );
-});
+};
 
 interface FeaturesSwiperProps
   extends Omit<React.ComponentPropsWithoutRef<"article">, "children"> {}
@@ -76,130 +74,131 @@ const FeaturesSwiperOptions: SwiperOptions = {
   modules: [Pagination],
 };
 
-let FeaturesSwiper: React.FC<FeaturesSwiperProps> = React.memo(
-  ({ className, ...rest }) => {
-    const swiperSetting = React.useMemo(() => FeaturesSwiperOptions, []);
-    const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+let FeaturesSwiper: React.FC<FeaturesSwiperProps> = ({
+  className,
+  ...rest
+}) => {
+  const swiperSetting = React.useMemo(() => FeaturesSwiperOptions, []);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-    if (isMobile) {
-      swiperSetting.direction = "horizontal";
-    } else {
-      swiperSetting.direction = "vertical";
-    }
-
-    return (
-      <article className={styles.swiper + " " + (className || "")} {...rest}>
-        <Swiper {...swiperSetting}>
-          <SwiperSlide>
-            <SlideContent>
-              <SlidePartWithHeader
-                header="We Create Something New"
-                description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-clone"
-                subHeader="30 New feature pages"
-                description="Startup Framework contains components and complex blocks which can easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-gem"
-                subHeader="Useful Symbol Components"
-                description="Samples will show you the feeling on how to play around using the components."
-              />
-            </SlideContent>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <SlideContent>
-              <SlidePartWithHeader
-                header="We Create Something New"
-                description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-clone"
-                subHeader="30 New feature pages"
-                description="Startup Framework contains components and complex blocks which can easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-gem"
-                subHeader="Useful Symbol Components"
-                description="Samples will show you the feeling on how to play around using the components."
-              />
-            </SlideContent>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <SlideContent>
-              <SlidePartWithHeader
-                header="We Create Something New"
-                description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-clone"
-                subHeader="30 New feature pages"
-                description="Startup Framework contains components and complex blocks which can easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-gem"
-                subHeader="Useful Symbol Components"
-                description="Samples will show you the feeling on how to play around using the components."
-              />
-            </SlideContent>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <SlideContent>
-              <SlidePartWithHeader
-                header="We Create Something New"
-                description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-clone"
-                subHeader="30 New feature pages"
-                description="Startup Framework contains components and complex blocks which can easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-gem"
-                subHeader="Useful Symbol Components"
-                description="Samples will show you the feeling on how to play around using the components."
-              />
-            </SlideContent>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <SlideContent>
-              <SlidePartWithHeader
-                header="We Create Something New"
-                description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-clone"
-                subHeader="30 New feature pages"
-                description="Startup Framework contains components and complex blocks which can easily."
-              />
-
-              <SlidePartWithPicture
-                imageClass="fa-regular fa-gem"
-                subHeader="Useful Symbol Components"
-                description="Samples will show you the feeling on how to play around using the components."
-              />
-            </SlideContent>
-          </SwiperSlide>
-        </Swiper>
-
-        <div className={styles.swiper__pagination}></div>
-      </article>
-    );
+  if (isMobile) {
+    swiperSetting.direction = "horizontal";
+  } else {
+    swiperSetting.direction = "vertical";
   }
-);
+
+  return (
+    <article className={styles.swiper + " " + (className || "")} {...rest}>
+      <Swiper {...swiperSetting}>
+        <SwiperSlide>
+          <SlideContent>
+            <SlidePartWithHeader
+              header="We Create Something New"
+              description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-clone"
+              subHeader="30 New feature pages"
+              description="Startup Framework contains components and complex blocks which can easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-gem"
+              subHeader="Useful Symbol Components"
+              description="Samples will show you the feeling on how to play around using the components."
+            />
+          </SlideContent>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <SlideContent>
+            <SlidePartWithHeader
+              header="We Create Something New"
+              description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-clone"
+              subHeader="30 New feature pages"
+              description="Startup Framework contains components and complex blocks which can easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-gem"
+              subHeader="Useful Symbol Components"
+              description="Samples will show you the feeling on how to play around using the components."
+            />
+          </SlideContent>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <SlideContent>
+            <SlidePartWithHeader
+              header="We Create Something New"
+              description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-clone"
+              subHeader="30 New feature pages"
+              description="Startup Framework contains components and complex blocks which can easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-gem"
+              subHeader="Useful Symbol Components"
+              description="Samples will show you the feeling on how to play around using the components."
+            />
+          </SlideContent>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <SlideContent>
+            <SlidePartWithHeader
+              header="We Create Something New"
+              description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-clone"
+              subHeader="30 New feature pages"
+              description="Startup Framework contains components and complex blocks which can easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-gem"
+              subHeader="Useful Symbol Components"
+              description="Samples will show you the feeling on how to play around using the components."
+            />
+          </SlideContent>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <SlideContent>
+            <SlidePartWithHeader
+              header="We Create Something New"
+              description="We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-clone"
+              subHeader="30 New feature pages"
+              description="Startup Framework contains components and complex blocks which can easily."
+            />
+
+            <SlidePartWithPicture
+              imageClass="fa-regular fa-gem"
+              subHeader="Useful Symbol Components"
+              description="Samples will show you the feeling on how to play around using the components."
+            />
+          </SlideContent>
+        </SwiperSlide>
+      </Swiper>
+
+      <div className={styles.swiper__pagination}></div>
+    </article>
+  );
+};
 
 export default FeaturesSwiper;

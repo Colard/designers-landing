@@ -4,7 +4,7 @@ import styles from "./Content.module.scss";
 interface ContentProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
-let Content: React.FC<ContentProps> = React.memo(({ ...rest }) => {
+let Content: React.FC<ContentProps> = ({ ...rest }) => {
   return (
     <section className={styles.content} {...rest}>
       <div className={styles["content__text-block"]}>
@@ -21,6 +21,6 @@ let Content: React.FC<ContentProps> = React.memo(({ ...rest }) => {
       </div>
     </section>
   );
-});
+};
 
 export default Content;

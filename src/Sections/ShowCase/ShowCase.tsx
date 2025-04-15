@@ -15,26 +15,28 @@ interface WorkProps {
   href?: string;
 }
 
-let Work: React.FC<WorkProps> = React.memo(({ image, type, name, href }) => {
+let Work: React.FC<WorkProps> = ({ image, type, name, href }) => {
   return (
-    <a href = {href || "#"} className={styles["show-case__work-box"]}>
+    <a href={href || "#"} className={styles["show-case__work-box"]}>
       <img src={image} className={styles["show-case__work-image"]} alt={name} />
       <p className={styles["show-case__work-type"]}>{type}</p>
       <h3 className={styles["show-case__work-name"]}>{name}</h3>
     </a>
   );
-});
+};
 
 interface ShowCaseProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
-let ShowCase: React.FC<ShowCaseProps> = React.memo(({ ...rest }) => {
+let ShowCase: React.FC<ShowCaseProps> = ({ ...rest }) => {
   return (
     <section {...rest} className={styles["show-case"]}>
       <Container className={styles["show-case__container"]}>
         <div className={styles["show-case__header-wrapper"]}>
           <h2 className={styles["show-case__header"]}>Last works</h2>
-          <a href="" className={styles["show-case__link"]}>View all Works</a>
+          <a href="" className={styles["show-case__link"]}>
+            View all Works
+          </a>
         </div>
 
         <div className={styles["show-case__works-wrapper"]}>
@@ -46,6 +48,6 @@ let ShowCase: React.FC<ShowCaseProps> = React.memo(({ ...rest }) => {
       </Container>
     </section>
   );
-});
+};
 
 export default ShowCase;

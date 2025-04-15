@@ -8,7 +8,7 @@ import React from "react";
 
 interface ContactFormProps {}
 
-let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
+let ContactForm: React.FC<ContactFormProps> = () => {
   return (
     <FormContainer className={styles["contact__form"]}>
       <div className={styles["contact__form-content"]}>
@@ -111,12 +111,12 @@ let ContactForm: React.FC<ContactFormProps> = React.memo(() => {
       </div>
     </FormContainer>
   );
-});
+};
 
 interface ContactProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
-let Contact: React.FC<ContactProps> = React.memo(({ ...rest }) => {
+let Contact: React.FC<ContactProps> = ({ ...rest }) => {
   return (
     <section className={styles["contact"]} {...rest}>
       <Container className={styles["contact__container"]}>
@@ -156,6 +156,6 @@ let Contact: React.FC<ContactProps> = React.memo(({ ...rest }) => {
       </Container>
     </section>
   );
-});
+};
 
 export default Contact;

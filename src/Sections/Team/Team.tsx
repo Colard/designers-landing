@@ -27,7 +27,7 @@ interface IcoLinkProps extends React.ComponentPropsWithoutRef<"a"> {
   link: Link;
 }
 
-let IcoLink: React.FC<IcoLinkProps> = React.memo(({ link, ...rest }) => {
+let IcoLink: React.FC<IcoLinkProps> = ({ link, ...rest }) => {
   return (
     <a
       href={link.url}
@@ -35,7 +35,7 @@ let IcoLink: React.FC<IcoLinkProps> = React.memo(({ link, ...rest }) => {
       {...rest}
     />
   );
-});
+};
 
 interface PersonProps {
   name: string;
@@ -44,27 +44,25 @@ interface PersonProps {
   links?: Link[];
 }
 
-let Person: React.FC<PersonProps> = React.memo(
-  ({ name, profession, image, links }) => {
-    return (
-      <div className={styles["team__member"]}>
-        <img className={styles["team__member-image"]} src={image} alt={name}/>
-        <div className={styles["team__member-info"]}>
-          <h3 className={styles["team__member-name"]}>{name}</h3>
-          <p className={styles["team__member-profession"]}>{profession}</p>
-          <div className={styles["team__member-links"]}>
-            {links && links.map((el) => <IcoLink key={el.name} link={el} />)}
-          </div>
+let Person: React.FC<PersonProps> = ({ name, profession, image, links }) => {
+  return (
+    <div className={styles["team__member"]}>
+      <img className={styles["team__member-image"]} src={image} alt={name} />
+      <div className={styles["team__member-info"]}>
+        <h3 className={styles["team__member-name"]}>{name}</h3>
+        <p className={styles["team__member-profession"]}>{profession}</p>
+        <div className={styles["team__member-links"]}>
+          {links && links.map((el) => <IcoLink key={el.name} link={el} />)}
         </div>
       </div>
-    );
-  }
-);
+    </div>
+  );
+};
 
 interface TeamProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
-let Team: React.FC<TeamProps> = React.memo(({ ...rest }) => {
+let Team: React.FC<TeamProps> = ({ ...rest }) => {
   return (
     <section className={styles["team"]} {...rest}>
       <Container className={styles["team__container"]}>
@@ -128,6 +126,5 @@ let Team: React.FC<TeamProps> = React.memo(({ ...rest }) => {
       </Container>
     </section>
   );
-});
-
+};
 export default Team;

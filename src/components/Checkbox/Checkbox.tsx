@@ -8,42 +8,45 @@ interface CheckboxProps
   name?: string;
 }
 
-let Checkbox: React.FC<CheckboxProps> = React.memo(
-  ({ className, active = false, name, markClass, ...rest }) => {
-    let [isActive, setIsActive] = React.useState(active);
+let Checkbox: React.FC<CheckboxProps> = ({
+  className,
+  active = false,
+  name,
+  markClass,
+  ...rest
+}) => {
+  let [isActive, setIsActive] = React.useState(active);
 
-    const handleChange = () => {
-      setIsActive(!isActive);
-    };
+  const handleChange = () => {
+    setIsActive(!isActive);
+  };
 
-    return (
-      <div
-        className={`${styles.checkbox} ${isActive ? styles.active : ""} ${
-          className || ""
-        }`}
-        onClick={handleChange}
-        {...rest}
-      >
-        <input
-          name={name}
-          className={styles["checkbox__input"]}
-          type="checkbox"
-          checked={isActive}
-          onChange={handleChange}
-        />
-        <i
-          className={
-            (markClass ||
-            "") +
-              " " +
-              styles["checkbox__icon"] +
-              " " +
-              (isActive ? styles.active : "")
-          }
-        ></i>
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      className={`${styles.checkbox} ${isActive ? styles.active : ""} ${
+        className || ""
+      }`}
+      onClick={handleChange}
+      {...rest}
+    >
+      <input
+        name={name}
+        className={styles["checkbox__input"]}
+        type="checkbox"
+        checked={isActive}
+        onChange={handleChange}
+      />
+      <i
+        className={
+          (markClass || "") +
+          " " +
+          styles["checkbox__icon"] +
+          " " +
+          (isActive ? styles.active : "")
+        }
+      ></i>
+    </div>
+  );
+};
 
 export default Checkbox;

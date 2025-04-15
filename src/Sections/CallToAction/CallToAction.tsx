@@ -7,7 +7,7 @@ import React from "react";
 interface CallToActionProps
   extends Omit<React.ComponentPropsWithoutRef<"section">, "children"> {}
 
-let CallToAction: React.FC<CallToActionProps> = React.memo(({ ...rest }) => {
+let CallToAction: React.FC<CallToActionProps> = ({ ...rest }) => {
   return (
     <section {...rest} className={styles["call-to-action"]}>
       <Container className={styles["call-to-action__container"]}>
@@ -21,14 +21,24 @@ let CallToAction: React.FC<CallToActionProps> = React.memo(({ ...rest }) => {
           </p>
         </div>
         <div className={styles["call-to-action__buttons-wrapper"]}>
-          <Button className={styles["call-to-action__youtube-button"] + " " + styles["override"]}></Button>
-          <Button className={styles["call-to-action__button"] + " " + styles["override"]}>
+          <Button
+            className={
+              styles["call-to-action__youtube-button"] +
+              " " +
+              styles["override"]
+            }
+          ></Button>
+          <Button
+            className={
+              styles["call-to-action__button"] + " " + styles["override"]
+            }
+          >
             Get Started
           </Button>
         </div>
       </Container>
     </section>
   );
-});
+};
 
 export default CallToAction;

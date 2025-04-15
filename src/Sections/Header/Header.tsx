@@ -4,7 +4,7 @@ import styles from "./Header.module.scss";
 interface HeaderProps
   extends Omit<React.ComponentPropsWithoutRef<"header">, "children"> {}
 
-let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
+let Header: React.FC<HeaderProps> = ({ ...rest }) => {
   let [isActive, setIsActive] = React.useState(false);
 
   let openMenu = () => {
@@ -14,7 +14,11 @@ let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
   return (
     <header className={styles.header} {...rest}>
       <nav>
-        <ul className={styles["header__menu"]+ " " + (isActive ? styles.active : "")}>
+        <ul
+          className={
+            styles["header__menu"] + " " + (isActive ? styles.active : "")
+          }
+        >
           <li>
             <a className={styles["header__navigate-link"]} href="#">
               Home
@@ -52,7 +56,14 @@ let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
           </li>
         </ul>
       </nav>
-      <div onClick={openMenu} className={styles["header__hamburger-menu"] + " " + (isActive ? styles.active : "")}>
+      <div
+        onClick={openMenu}
+        className={
+          styles["header__hamburger-menu"] +
+          " " +
+          (isActive ? styles.active : "")
+        }
+      >
         <div className={styles["header__hamburger-menu-icon"]}>
           <span className={styles["line-1"]}></span>
           <span className={styles["line-2"]}></span>
@@ -61,6 +72,6 @@ let Header: React.FC<HeaderProps> = React.memo(({ ...rest }) => {
       </div>
     </header>
   );
-});
+};
 
 export default Header;

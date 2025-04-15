@@ -8,7 +8,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import "swiper/scss/effect-coverflow";
 
-
 interface Service {
   name: string;
   isActive: boolean;
@@ -20,35 +19,33 @@ interface PriceColumnProps {
   price: number;
 }
 
-let PriceColumn: React.FC<PriceColumnProps> = React.memo(
-  ({ services, header, price }) => {
-    return (
-      <div className={styles["price-column"]}>
-        <h3 className={styles["price-column__header"]}>{header}</h3>
-        <p className={styles["price-column__price"]}>
-          {price} <span>$</span>
-        </p>
+let PriceColumn: React.FC<PriceColumnProps> = ({ services, header, price }) => {
+  return (
+    <div className={styles["price-column"]}>
+      <h3 className={styles["price-column__header"]}>{header}</h3>
+      <p className={styles["price-column__price"]}>
+        {price} <span>$</span>
+      </p>
 
-        <div className={styles["price-column__services"]}>
-          {services.map((service) => (
-            <div
-              key={service.name}
-              className={`${styles["price-column__service"]} ${
-                service.isActive ? styles["active"] : ""
-              }`}
-            >
-              {service.name}
-            </div>
-          ))}
-        </div>
-
-        <Button className={styles["price-column__button"]}>Get Started</Button>
+      <div className={styles["price-column__services"]}>
+        {services.map((service) => (
+          <div
+            key={service.name}
+            className={`${styles["price-column__service"]} ${
+              service.isActive ? styles["active"] : ""
+            }`}
+          >
+            {service.name}
+          </div>
+        ))}
       </div>
-    );
-  }
-);
 
-let PricingTablesStaticList: React.FC = React.memo(() => {
+      <Button className={styles["price-column__button"]}>Get Started</Button>
+    </div>
+  );
+};
+
+let PricingTablesStaticList: React.FC = () => {
   return (
     <div className={styles["pricing-table__content"]}>
       <PriceColumn
@@ -103,18 +100,17 @@ let PricingTablesStaticList: React.FC = React.memo(() => {
       />
     </div>
   );
-});
+};
 
-let PricingTableSwiper: React.FC = React.memo(() => {
+let PricingTableSwiper: React.FC = () => {
   return (
     <div className={styles["pricing-table__swiper"]}>
       <Swiper
-
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={"auto"}
         loop={true}
-        spaceBetween={30} 
+        spaceBetween={30}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -124,7 +120,6 @@ let PricingTableSwiper: React.FC = React.memo(() => {
         }}
         pagination={{ clickable: true }}
         navigation={true}
-
         className="mySwiper"
       >
         <SwiperSlide>
@@ -240,12 +235,14 @@ let PricingTableSwiper: React.FC = React.memo(() => {
       </Swiper>
     </div>
   );
-});
+};
 
-let PricingTable: React.FC<Omit<
+type PricingTableProps = Omit<
   React.ComponentPropsWithoutRef<"section">,
   "children"
->> = React.memo(({ ...rest }) => {
+>;
+
+let PricingTable: React.FC<PricingTableProps> = ({ ...rest }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
 
   return (
@@ -267,6 +264,6 @@ let PricingTable: React.FC<Omit<
       </Container>
     </section>
   );
-});
+};
 
 export default PricingTable;

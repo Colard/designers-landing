@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./Footer.module.scss";
 
-let Footer: React.FC<Omit<
-  React.ComponentPropsWithoutRef<"footer">,
-  "children"
->> = React.memo(({ ...rest }) => {
+type FooterProps = Omit<React.ComponentPropsWithoutRef<"footer">, "children">;
+
+let Footer: React.FC<FooterProps> = ({ ...rest }) => {
   return (
     <footer className={styles["footer"]} {...rest}>
       <div className={styles["footer__row"]}>
@@ -39,12 +38,10 @@ let Footer: React.FC<Omit<
           <a href="#contact">Contacts</a>
         </nav>
 
-        <p className={styles["footer__copyright"]}>
-          © 2024 Designmodo. All rights reserved.
-        </p>
+        <p>© 2024 Designmodo. All rights reserved.</p>
       </div>
     </footer>
   );
-});
+};
 
 export default Footer;

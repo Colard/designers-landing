@@ -2,7 +2,7 @@
   min-height: 100vh;
   height: 100%;
   width: 100%;
-  padding-top: 24.6rem;
+  padding-top: 15rem;
   background-image: url("../../assets/images/hero-image.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,7 +26,6 @@
 
 @media (max-width: 1024px) {
   .hero {
-    padding-top: 0rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

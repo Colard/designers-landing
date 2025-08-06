@@ -237,10 +237,7 @@ let PricingTableSwiper: React.FC = () => {
   );
 };
 
-type PricingTableProps = Omit<
-  React.ComponentPropsWithoutRef<"section">,
-  "children"
->;
+type PricingTableProps = Omit<React.ComponentPropsWithoutRef<"section">, "children">;
 
 let PricingTable: React.FC<PricingTableProps> = ({ ...rest }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" });
@@ -251,16 +248,12 @@ let PricingTable: React.FC<PricingTableProps> = ({ ...rest }) => {
         <div className={styles["pricing-table__description"]}>
           <h2 className={styles["pricing-table__header"]}>Plans & Pricing</h2>
           <p className={styles["pricing-table__description-text"]}>
-            Startup Framework is free forever — you only pay for custom domain
-            hosting or to export your site.
+            Startup Framework is free forever — you only pay for custom domain hosting or to export
+            your site.
           </p>
         </div>
 
-        {isTabletOrMobile ? (
-          <PricingTableSwiper />
-        ) : (
-          <PricingTablesStaticList />
-        )}
+        {isTabletOrMobile ? <PricingTableSwiper /> : <PricingTablesStaticList />}
       </Container>
     </section>
   );

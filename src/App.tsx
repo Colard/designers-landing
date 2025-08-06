@@ -16,16 +16,16 @@ function App() {
     <>
       <Header />
       <main>
-        <Hero id="hero"/>
-        <Content id="content"/>
-        <Features id="features"/>
-        <FormPage id="form-page"/>
-        <Testimonial id="testimonial"/>
-        <CallToAction id="call-to-action"/>
-        <ShowCase id="show-case"/>
-        <Team id="team"/>
-        <Contact id="contact"/>
-        <PricingTable id="pricing-table"/>
+        <Hero id="hero" />
+        <Features id="features" />
+        <Content id="content" />
+        <Testimonial id="testimonial" />
+        <CallToAction id="call-to-action" />
+        <ShowCase id="show-case" />
+        <FormPage id="form-page" />
+        <Team id="team" />
+        <Contact id="contact" />
+        <PricingTable id="pricing-table" />
       </main>
       <Footer />
     </>

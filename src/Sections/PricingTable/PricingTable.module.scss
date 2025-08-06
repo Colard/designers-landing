@@ -1,9 +1,6 @@
 .pricing-table {
   min-height: 113rem;
-  background-image: url("../../assets/images/Pricing-Table/Background.png");
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--background-mask);
 
   &__container {
     padding: 10rem 5rem;

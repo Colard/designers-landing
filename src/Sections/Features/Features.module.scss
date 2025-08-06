@@ -1,10 +1,7 @@
 .features {
   --block-height: 736px;
 
-  background-image: url("../../assets/images/Features/background.png");
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--background-mask);
 
   min-height: var(--block-height);
   height: 100%;

@@ -5,16 +5,24 @@
   font-weight: 500;
   position: fixed;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   z-index: 20;
   background-color: transparent;
+  -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 
   &.scrolled {
     background-color: var(--background-mask);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   }
 
   nav {
@@ -26,13 +34,20 @@
     margin: 0 auto;
     max-width: 468px;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   &__navigate-link {
     color: white;
+    -webkit-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
     &:hover {
       opacity: 0.3;
@@ -51,11 +66,18 @@
     background-color: var(--background-mask);
     height: var(--header-height);
     padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     padding: 0 3rem;
-    align-items: center;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 
     &__hamburger-menu {
       z-index: 4;
@@ -66,8 +88,10 @@
 
       &.active {
         .line-1 {
-          transform-origin: center;
-          transform: translateY(1.75rem) rotate(45deg);
+          -webkit-transform-origin: center;
+                  transform-origin: center;
+          -webkit-transform: translateY(1.75rem) rotate(45deg);
+                  transform: translateY(1.75rem) rotate(45deg);
         }
 
         .line-2 {
@@ -75,15 +99,22 @@
         }
 
         .line-3 {
-          transform-origin: center;
-          transform: translateY(-1.75rem) rotate(-45deg);
+          -webkit-transform-origin: center;
+                  transform-origin: center;
+          -webkit-transform: translateY(-1.75rem) rotate(-45deg);
+                  transform: translateY(-1.75rem) rotate(-45deg);
         }
       }
     }
 
     &__hamburger-menu-icon {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
       gap: 1.3rem;
       position: relative;
 
@@ -92,6 +123,7 @@
         width: 5rem;
         height: 0.5rem;
         background-color: var(--white);
+        -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
       }
 
@@ -118,10 +150,18 @@
       left: 0;
       top: -50rem;
       right: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       background-color: var(--background-mask);
+      -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
 
       &.active {
@@ -131,6 +171,7 @@
       li {
         width: 100%;
         font-size: 2rem;
+        -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
       }
 

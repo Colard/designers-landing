@@ -5,8 +5,13 @@
   background-color: var(--background-mask);
 
   &__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     max-width: 107rem;
   }
 
@@ -31,6 +36,8 @@
     position: relative;
     max-width: 470px;
     padding: 3.5rem 2.8rem 2.3rem 3.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     grid-auto-rows: 1fr;
 
@@ -50,7 +57,9 @@
   &__image-wrapper {
     margin-top: 0.1rem;
     margin-right: 3rem;
-    flex: 0 0 7rem;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 7rem;
+            flex: 0 0 7rem;
   }
 
   &__image {
@@ -58,14 +67,22 @@
     max-height: 7rem;
     width: 100%;
     height: auto;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     border-radius: 1rem;
   }
 
   &__comment-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   &__comment {
@@ -88,9 +105,16 @@
 @media (max-width: 1024px) {
   .testimonial {
     &__container {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
 
     &__header {

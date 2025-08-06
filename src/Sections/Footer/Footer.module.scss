@@ -7,6 +7,7 @@
   background-color: var(--footer);
   a {
     color: var(--white);
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 
     &:hover {
@@ -15,9 +16,15 @@
 }
 
   &__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: top;
-    justify-content: space-between;
+    -webkit-box-align: top;
+        -ms-flex-align: top;
+            align-items: top;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   hr {
@@ -36,6 +43,8 @@
   }
 
   &__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 2.8rem;
   }
@@ -46,7 +55,10 @@
     padding-left: 4rem;
     padding-right: 4rem;
     &__row {
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
       gap: 2rem;
     }
   }

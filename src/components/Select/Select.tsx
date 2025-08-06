@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Select.module.scss";
-import arrow from "../../assets/images/arrow.svg";
+import arrow from "../../assets/images/Arrow.svg";
 
 type OptionValue = string | number;
 
@@ -9,18 +9,12 @@ interface Option {
   value: OptionValue;
 }
 
-interface SelectProps
-  extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
+interface SelectProps extends Omit<React.ComponentPropsWithoutRef<"div">, "children"> {
   options: Option[];
   name: string;
 }
 
-const Select: React.FC<SelectProps> = ({
-  name,
-  options,
-  className = "",
-  ...rest
-}) => {
+const Select: React.FC<SelectProps> = ({ name, options, className = "", ...rest }) => {
   const [isActive, setIsActive] = React.useState(false);
   const [hidden, setHidden] = React.useState(false);
   const [animationSpeed, setAnimationSpeed] = React.useState(0);
@@ -85,10 +79,7 @@ const Select: React.FC<SelectProps> = ({
 
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        elementRef.current &&
-        !elementRef.current.contains(event.target as Node)
-      ) {
+      if (elementRef.current && !elementRef.current.contains(event.target as Node)) {
         hideElement();
       }
     };
@@ -102,12 +93,7 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div ref={elementRef} {...rest} className={`${styles.select} ${className}`}>
-      <select
-        ref={selectRef}
-        name={name}
-        className={styles.select__hidden}
-        required
-      >
+      <select ref={selectRef} name={name} className={styles.select__hidden} required>
         {options.map((el, i) => (
           <option key={i} value={el.value}>
             {el.text}
@@ -119,9 +105,7 @@ const Select: React.FC<SelectProps> = ({
         <div className={styles.select__input} onClick={toggle}>
           {text}
           <img
-            className={`${styles.select__icon} ${
-              isActive ? styles.select__icon_active : ""
-            }`}
+            className={`${styles.select__icon} ${isActive ? styles.select__icon_active : ""}`}
             src={arrow}
             draggable="false"
             alt="arrow"
